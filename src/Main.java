@@ -74,6 +74,128 @@ public class Main {
             System.out.printf("The value %d was not found in the array.", searchTarget);
         }
 
+        System.out.println("");
 
+        // minimum and maximum
+        int min = dataPoints[0];
+        int max = dataPoints[0];
+        for (int e = 0; e < dataPoints.length; e++)
+        {
+            if (min > dataPoints[e])
+            {
+                min = dataPoints[e];
+            }
+
+            if (max < dataPoints[e])
+            {
+                max = dataPoints[e];
+            }
+        }
+        System.out.println("The minimum of the array is " + min);
+        System.out.println("The maximum of the array is " + max);
+
+        System.out.println("\n");
+
+        // method for average
+        System.out.println("Average of dataPoints is: " + getAverage(dataPoints));
+
+        // method for minimum
+        System.out.println("Minimum of dataPoints is: " + min(dataPoints));
+
+        // method for maximum
+        System.out.println("Maximum of dataPoints is: " + max(dataPoints));
+
+        //method for occurrenceScan
+        System.out.println("You target value of " + searchTarget + " was found in the array dataPoints " + occuranceScan(dataPoints, searchTarget) + " times.");
+
+        // method for sum
+        System.out.println("Sum of dataPoints is: " + sum(dataPoints));
+
+        // method for contains
+        if (contains(dataPoints, searchTarget))
+        {
+            System.out.println("The array dataPoints contains the target value " + searchTarget);
+        }
+        else
+        {
+            System.out.println("The array dataPoints does not contain the target value " + searchTarget);
+        }
     }
+
+    public static double getAverage(int values[])
+    {
+        double sum = 0.0;
+        for (int e = 0; e < values.length; e++)
+        {
+            sum += values[e];
+        }
+
+        double average = sum / values.length;
+        return average;
+    }
+
+    public static int min(int values[])
+    {
+        int min = values[0];
+        for (int e = 0; e < values.length; e++)
+        {
+            if (min > values[e])
+            {
+                min = values[e];
+            }
+        }
+        return min;
+    }
+
+    public static int max(int values[])
+    {
+        int max = values[0];
+        for (int e = 0; e < values.length; e++)
+        {
+            if (max < values[e])
+            {
+                max = values[e];
+            }
+        }
+        return max;
+    }
+
+    public static int occuranceScan(int values[], int target)
+    {
+        int counter = 0;
+        for (int e = 0; e < values.length; e++)
+        {
+            if (target == values[e])
+            {
+                counter ++;
+            }
+        }
+
+        return counter;
+    }
+
+    public static int sum(int values[])
+    {
+        int sum = 0;
+        for (int e = 0; e < values.length; e++)
+        {
+            sum += values[e];
+        }
+        return sum;
+    }
+
+    public static boolean contains(int values[], int target)
+    {
+        boolean targetFound = false;
+        for (int e = 0; e < values.length; e++)
+        {
+            if (target == values[e])
+            {
+                targetFound = true;
+                break;
+            }
+        }
+        return targetFound;
+    }
+
 }
